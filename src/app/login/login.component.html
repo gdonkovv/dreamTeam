@@ -2,11 +2,11 @@
 <form #loginForm="ngForm" (ngSubmit)="handleLogin(loginForm.value)">
     <div>
         <label for="email">Email</label>
-        <input type="text" name="email" id="email" ngModel>
+        <input type="text" name="email" id="email" ngModel required email>
     </div>
     <div>
         <label for="password">Password</label>
-        <input type="password" name="password" id="password" ngModel>
+        <input type="password" name="password" id="password" ngModel required>
     </div>
-    <button>Login</button>
+    <button [disabled]="loginForm.invalid">Login</button>
 </form>

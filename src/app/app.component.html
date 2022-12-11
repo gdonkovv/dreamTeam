@@ -5,10 +5,10 @@
       <li><a routerLink="/">Home</a></li>
       <li><a routerLink="/dream-teams">Dream Teams</a></li>
       <li><a routerLink="/players">Players</a></li>
-      <li><a routerLink="/my-team">My Team</a></li>
-      <li><a routerLink="/login">Login</a></li>
-      <li><a routerLink="/register">Register</a></li>
-      <li><a routerLink="/logout">Logout</a></li>
+      <li *ngIf="isLogged"><a routerLink="/my-team">My Team</a></li>
+      <li *ngIf="isLogged"><a routerLink="" (click)="logout()">Logout</a></li>
+      <li *ngIf="!isLogged"><a routerLink="/login">Login</a></li>
+      <li *ngIf="!isLogged"><a routerLink="/register">Register</a></li>
     </ul>
   </nav>
 </header>

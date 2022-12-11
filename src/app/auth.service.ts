@@ -1,31 +1,91 @@
-import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Injectable, NgZone } from '@angular/core';
 import { IUser } from './models/user';
+import { AngularFireAuth } from '@angular/fire/compat/auth'
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  currentUser: IUser | null = null;
-
   get isLogged() {
-    return !!this.currentUser;
+    let userJSON = this.getUserData();
+    if (userJSON) {
+      return true;
+    } else {
+      return false;
+    }
   }
 
   constructor(
-    private http: HttpClient
-  ) { }
-
-  login(email: string, password: string) {
-    
+    private router: Router,
+    private angularFireAuth: AngularFireAuth,
+    private ngZone: NgZone
+  ) {
+    this.angularFireAuth.onAuthStateChanged(user => {
+      if (user) {
+        user?.getIdToken().then(idToken => {
+          let userObj = {
+            user: {
+              email: user.email,
+              id: user.uid
+            },
+            token: idToken
+          };
+          sessionStorage.setItem('userData', JSON.stringify(userObj));
+          ngZone.run(() => {
+            this.router.navigate(['']);
+          })
+        });
+      } else {
+        ngZone.run(() => {
+          this.router.navigate(['login']);
+        })
+      }
+    })
   }
 
-  register(email: string, password: string) {
-    
+  login(email: string, password: string, OnSuccess: any, OnError: any) {
+    this.angularFireAuth.signInWithEmailAndPassword(email, password)
+      .then(result => {
+        console.log(result);
+        OnSuccess();
+        this.router.navigate(['']);
+      })
+      .catch(error => {
+        console.log(error);
+        OnError();
+      });
+
+  }
+
+  register(email: string, password: string, OnSuccess: any, OnError: any) {
+    this.angularFireAuth.createUserWithEmailAndPassword(email, password)
+      .then(result => {
+        console.log(result);
+        OnSuccess();
+      })
+      .catch(error => {
+        console.log(error);
+        OnError();
+      })
   }
 
   logout() {
-    
+    this.angularFireAuth.signOut()
+      .then(() => {
+        sessionStorage.setItem("userData", "");
+      })
+      .catch((error) => console.log(error));
+  }
+
+
+  getUserData() {
+    let userData = sessionStorage.getItem('userData');
+    if (userData) {
+      return JSON.parse(userData);
+    } else {
+      return null;
+    }
   }
 }

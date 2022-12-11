@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-login',
@@ -7,10 +8,18 @@ import { Component } from '@angular/core';
 })
 export class LoginComponent {
 
-  constructor() { }
+  constructor(
+    private authService: AuthService
+  ) { }
 
   handleLogin(formData: { email: string, password: string }) {
-    console.log(formData);
+    this.authService.login(formData.email, formData.password,
+      () => {
+        console.log("login successful");
+      },
+      () => {
+        console.log("login failed");
+      });
   }
 
 }
