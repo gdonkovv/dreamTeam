@@ -5,6 +5,9 @@ import { DetailsComponent } from './details/details.component';
 import { EditComponent } from './edit/edit.component';
 import { TeamListComponent } from './team-list/team-list.component';
 import { TeamComponent } from './team/team.component';
+import { TeamsService } from './teams.service';
+import { AuthService } from '../auth.service';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -17,13 +20,17 @@ import { TeamComponent } from './team/team.component';
     TeamComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    RouterModule
   ],
   exports: [
     TeamListComponent,
     CreateComponent,
     DetailsComponent,
     EditComponent
+  ],
+  providers: [
+    TeamsService
   ]
 })
 export class DreamTeamModule { }

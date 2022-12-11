@@ -1,5 +1,3 @@
-import { IUser } from "./user";
-
 export interface Team {
     name: string;
     emblem: string;
@@ -8,6 +6,7 @@ export interface Team {
     playersDF: string[];
     playersMF: string[];
     playersFW: string[];
-    owner: IUser;
+    owner: string;
     ratings: number[];
+    id: string;
 }

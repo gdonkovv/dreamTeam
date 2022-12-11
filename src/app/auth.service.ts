@@ -2,6 +2,7 @@ import { Injectable, NgZone } from '@angular/core';
 import { IUser } from './models/user';
 import { AngularFireAuth } from '@angular/fire/compat/auth'
 import { Router } from '@angular/router';
+import { TeamsService } from './dream-team/teams.service';
 
 @Injectable({
   providedIn: 'root'
@@ -9,8 +10,8 @@ import { Router } from '@angular/router';
 export class AuthService {
 
   get isLogged() {
-    let userJSON = this.getUserData();
-    if (userJSON) {
+    let user = this.getUserData();
+    if (user) {
       return true;
     } else {
       return false;
@@ -20,15 +21,22 @@ export class AuthService {
   constructor(
     private router: Router,
     private angularFireAuth: AngularFireAuth,
-    private ngZone: NgZone
+    private ngZone: NgZone,
+    private teamService: TeamsService
   ) {
     this.angularFireAuth.onAuthStateChanged(user => {
       if (user) {
         user?.getIdToken().then(idToken => {
+          let teamId: string;
+          teamService.fetchUserTeam(user.uid).subscribe((res) => {
+            teamId = res.id;
+          });
+
           let userObj = {
             user: {
               email: user.email,
-              id: user.uid
+              id: user.uid,
+              teamId: teamId
             },
             token: idToken
           };
@@ -47,8 +55,7 @@ export class AuthService {
 
   login(email: string, password: string, OnSuccess: any, OnError: any) {
     this.angularFireAuth.signInWithEmailAndPassword(email, password)
-      .then(result => {
-        console.log(result);
+      .then(() => {
         OnSuccess();
         this.router.navigate(['']);
       })
@@ -61,8 +68,7 @@ export class AuthService {
 
   register(email: string, password: string, OnSuccess: any, OnError: any) {
     this.angularFireAuth.createUserWithEmailAndPassword(email, password)
-      .then(result => {
-        console.log(result);
+      .then(() => {
         OnSuccess();
       })
       .catch(error => {
