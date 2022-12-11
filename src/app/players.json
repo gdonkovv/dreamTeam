@@ -1,0 +1,81 @@
+{
+    "players": [
+        {
+            "name": "Messi",
+            "country": "Argentina",
+            "position": "FW",
+            "teamIds": [],
+            "id": "0"
+        },
+        {
+            "name": "Armani",
+            "country": "Argentina",
+            "position": "GK",
+            "teamIds": [],
+            "id": "1"
+        },
+        {
+            "name": "Otamendi",
+            "country": "Argentina",
+            "position": "DF",
+            "teamIds": [],
+            "id": "2"
+        },
+        {
+            "name": "Paredes",
+            "country": "Argentina",
+            "position": "MF",
+            "teamIds": [],
+            "id": "3"
+        },
+        {
+            "name": "Di Maria",
+            "country": "Argentina",
+            "position": "FW",
+            "teamIds": [],
+            "id": "4"
+        },
+        {
+            "name": "De Bruyne",
+            "country": "Belgium",
+            "position": "MF",
+            "teamIds": [],
+            "id": "5"
+        },
+        {
+            "name": "Casemiro",
+            "country": "Brazil",
+            "position": "MF",
+            "teamIds": [],
+            "id": "6"
+        },
+        {
+            "name": "Modric",
+            "country": "Croatia",
+            "position": "MF",
+            "teamIds": [],
+            "id": "7"
+        },
+        {
+            "name": "Walker",
+            "country": "England",
+            "position": "DF",
+            "teamIds": [],
+            "id": "8"
+        },
+        {
+            "name": "Varane",
+            "country": "France",
+            "position": "DF",
+            "teamIds": [],
+            "id": "9"
+        },
+        {
+            "name": "Nagatomo",
+            "country": "Japan",
+            "position": "DF",
+            "teamIds": [],
+            "id": "10"
+        }
+    ]
+}

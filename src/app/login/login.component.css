@@ -1,0 +1,39 @@
+h2 {
+  color: #8A1538;
+  margin-left: 15px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+input {
+  display: inline;
+  font-size: 11px;
+  border: solid 1px gray;
+  width: 200px;
+  height: 20px;
+  margin: 15px;
+}
+
+div {
+  height: 30px;
+  margin: 10px;
+}
+
+button {
+  background-color: #8A1538;
+  border: none;
+  color: lavender;
+  padding: 10px 25px;
+  margin: 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 20px;
+}
+
+button:hover {
+  background-color: #4d061b;
+  /* Green */
+  color: lavender;
+}

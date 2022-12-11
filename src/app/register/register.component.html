@@ -1,0 +1,16 @@
+<h2>Register</h2>
+<form #registerForm="ngForm" (ngSubmit)="handleRegister(registerForm.value)">
+    <div>
+        <label for="email">Email</label>
+        <input type="text" name="email" id="email" ngModel>
+    </div>
+    <div>
+        <label for="password">Password</label>
+        <input type="password" name="password" id="password" ngModel>
+    </div>
+    <div>
+        <label for="repass">Repeat Password</label>
+        <input type="password" name="repass" id="repass" ngModel>
+    </div>
+    <button>Register</button>
+</form>

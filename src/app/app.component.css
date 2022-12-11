@@ -1,0 +1,33 @@
+nav li {
+    display: block;
+    padding: 15px;
+    float: left;
+}
+
+nav {
+    float: right;
+    font-size: 16px;
+}
+
+nav li a {
+    color: white;
+    text-decoration: none;
+}
+
+header img {
+    width: 100px;
+    display: inline-block;
+    padding: 5px;
+}
+
+header {
+    height: 80px;
+}
+
+footer p {
+    color: white;
+    font-size: 12px;
+    margin-top: auto;
+    background-color: #8A1538; 
+    padding: 10px;
+}

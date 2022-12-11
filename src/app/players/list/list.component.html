@@ -1,0 +1,18 @@
+<h2>All Players</h2>
+<div class="searchFields"></div>
+<div *ngIf="allPlayers">
+    <ul>
+        <li *ngFor="let player of allPlayers">
+            <div class="playerCard">
+                <h3>{{player.name}}</h3>
+                <img src="../../../assets/images/imgTShirt.png">
+                <p>{{player.country}}</p>
+                <p>{{player.position}}</p>
+                <p>Plays in {{player.teamIds.length}} teams</p>
+            </div>
+        </li>
+    </ul>
+</div>
+<div *ngIf="!allPlayers">
+    No Players found!
+</div>
