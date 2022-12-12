@@ -50,10 +50,6 @@ const routes: Routes = [
     component: ListComponent
   },
   {
-    path: "my-team",
-    redirectTo: "/dream-teams/create"
-  },
-  {
     path: "**",
     component: NotFoundComponent
   }

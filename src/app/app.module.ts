@@ -15,6 +15,7 @@ import { PlayersModule } from './players/players.module';
 import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
 import { provideAuth,getAuth } from '@angular/fire/auth';
+import { NavigationComponent } from './core/navigation/navigation.component';
 
 @NgModule({
   declarations: [

@@ -21,22 +21,16 @@ export class AuthService {
   constructor(
     private router: Router,
     private angularFireAuth: AngularFireAuth,
-    private ngZone: NgZone,
-    private teamService: TeamsService
+    private ngZone: NgZone
   ) {
     this.angularFireAuth.onAuthStateChanged(user => {
       if (user) {
         user?.getIdToken().then(idToken => {
-          let teamId: string;
-          teamService.fetchUserTeam(user.uid).subscribe((res) => {
-            teamId = res.id;
-          });
 
           let userObj = {
             user: {
               email: user.email,
-              id: user.uid,
-              teamId: teamId
+              id: user.uid
             },
             token: idToken
           };
