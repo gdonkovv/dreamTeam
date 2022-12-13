@@ -1,1 +1,2 @@
-<p>team works!</p>
+<app-create *ngIf="!userTeam"></app-create>
+<app-details *ngIf="userTeam" [teamView]="userTeam"></app-details>

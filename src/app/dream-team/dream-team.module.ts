@@ -6,7 +6,6 @@ import { EditComponent } from './edit/edit.component';
 import { TeamListComponent } from './team-list/team-list.component';
 import { TeamComponent } from './team/team.component';
 import { TeamsService } from './teams.service';
-import { AuthService } from '../auth.service';
 import { RouterModule } from '@angular/router';
 
 
@@ -27,7 +26,8 @@ import { RouterModule } from '@angular/router';
     TeamListComponent,
     CreateComponent,
     DetailsComponent,
-    EditComponent
+    EditComponent,
+    TeamComponent
   ],
   providers: [
     TeamsService

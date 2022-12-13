@@ -1,5 +1,4 @@
 import { Injectable, NgZone } from '@angular/core';
-import { IUser } from './models/user';
 import { AngularFireAuth } from '@angular/fire/compat/auth'
 import { Router } from '@angular/router';
 import { TeamsService } from './dream-team/teams.service';
@@ -25,20 +24,22 @@ export class AuthService {
   ) {
     this.angularFireAuth.onAuthStateChanged(user => {
       if (user) {
-        user?.getIdToken().then(idToken => {
+        user?.getIdToken()
+          .then(idToken => {
 
-          let userObj = {
-            user: {
-              email: user.email,
-              id: user.uid
-            },
-            token: idToken
-          };
-          sessionStorage.setItem('userData', JSON.stringify(userObj));
-          ngZone.run(() => {
-            this.router.navigate(['']);
-          })
-        });
+            let userObj = {
+              user: {
+                email: user.email,
+                id: user.uid
+              },
+              token: idToken
+            };
+
+            sessionStorage.setItem('userData', JSON.stringify(userObj));
+            ngZone.run(() => {
+              this.router.navigate(['']);
+            })
+          });
       } else {
         ngZone.run(() => {
           this.router.navigate(['login']);

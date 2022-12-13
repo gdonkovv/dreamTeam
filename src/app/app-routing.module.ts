@@ -4,6 +4,7 @@ import { CreateComponent } from './dream-team/create/create.component';
 import { DetailsComponent } from './dream-team/details/details.component';
 import { EditComponent } from './dream-team/edit/edit.component';
 import { TeamListComponent } from './dream-team/team-list/team-list.component';
+import { TeamComponent } from './dream-team/team/team.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { NotFoundComponent } from './not-found/not-found.component';
@@ -32,16 +33,12 @@ const routes: Routes = [
         component: TeamListComponent
       },
       {
-        path: "create",
-        component: CreateComponent
+        path: "my-team",
+        component: TeamComponent
       },
       {
         path: "details/:id",
         component: DetailsComponent
-      },
-      {
-        path: "edit/:id",
-        component: EditComponent
       }
     ]
   },

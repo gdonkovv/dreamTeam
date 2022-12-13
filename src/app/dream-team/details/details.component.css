@@ -41,3 +41,17 @@ ul {
     padding-top: 15px;
     padding-bottom: 35px;
 }
+
+.mainInfo > img {
+    width: 200px;
+}
+
+.mainInfo > p {
+    margin: 0;
+    text-align: left;
+    background-color: white;
+}
+
+.mainInfo {
+    background-color: lavender;
+}
