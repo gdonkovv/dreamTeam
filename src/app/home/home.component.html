@@ -3,32 +3,38 @@
 </div>
 <div class="topSection">
     <ul>
-        <li>
+        <li *ngIf="first">
             <div class="topCard">
                 <h3>1st place</h3>
-                <img src="../../assets/images/emblem1.png">
-                <p>Team name</p>
-                <p>Team rating</p>
-                <button routerLink="/dream-teams/details/1">View More</button>
+                <img *ngIf="first.emblem === 'emblem1'" src="../../assets/images/emblem1.png">
+                <img *ngIf="first.emblem === 'emblem2'" src="../../assets/images/emblem2.png">
+                <p>{{first.name}}</p>
+                <p>{{first.ratings | avgRating | number: '0.2'}}</p>
+                <button routerLink="/dream-teams/details/{{first.id}}">View More</button>
             </div>
         </li>
-        <li>
+        <li *ngIf="second">
             <div class="topCard">
                 <h3>2nd place</h3>
-                <img src="../../assets/images/emblem2.png">
-                <p>Team name</p>
-                <p>Team rating</p>
-                <button routerLink="/dream-teams/details/2">View More</button>
+                <img *ngIf="second.emblem === 'emblem1'" src="../../assets/images/emblem1.png">
+                <img *ngIf="second.emblem === 'emblem2'" src="../../assets/images/emblem2.png">
+                <p>{{second.name}}</p>
+                <p>{{second.ratings | avgRating | number: '0.2'}}</p>
+                <button routerLink="/dream-teams/details/{{second.id}}">View More</button>
             </div>
         </li>
-        <li>
+        <li *ngIf="third">
             <div class="topCard">
                 <h3>3rd place</h3>
-                <img src="../../assets/images/emblem1.png">
-                <p>Team name</p>
-                <p>Team rating</p>
-                <button routerLink="/dream-teams/details/3">View More</button>
+                <img *ngIf="third.emblem === 'emblem1'" src="../../assets/images/emblem1.png">
+                <img *ngIf="third.emblem === 'emblem2'" src="../../assets/images/emblem2.png">
+                <p>{{third.name}}</p>
+                <p>{{third.ratings | avgRating | number: '0.2'}}</p>
+                <button routerLink="/dream-teams/details/{{third.id}}">View More</button>
             </div>
+        </li>
+        <li *ngIf="!first">
+            No teams found!
         </li>
     </ul>
 </div>

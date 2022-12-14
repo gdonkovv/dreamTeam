@@ -15,6 +15,7 @@ import { PlayersModule } from './players/players.module';
 import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
 import { provideAuth, getAuth } from '@angular/fire/auth';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { provideAuth, getAuth } from '@angular/fire/auth';
     DreamTeamModule,
     PlayersModule,
     HttpClientModule,
+    SharedModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth())
   ],

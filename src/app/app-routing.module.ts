@@ -1,8 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { CreateComponent } from './dream-team/create/create.component';
-import { DetailsComponent } from './dream-team/details/details.component';
-import { EditComponent } from './dream-team/edit/edit.component';
+import { DetailsMainComponent } from './dream-team/details-main/details-main.component';
 import { TeamListComponent } from './dream-team/team-list/team-list.component';
 import { TeamComponent } from './dream-team/team/team.component';
 import { HomeComponent } from './home/home.component';
@@ -38,7 +36,7 @@ const routes: Routes = [
       },
       {
         path: "details/:id",
-        component: DetailsComponent
+        component: DetailsMainComponent
       }
     ]
   },

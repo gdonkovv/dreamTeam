@@ -7,6 +7,8 @@ import { TeamListComponent } from './team-list/team-list.component';
 import { TeamComponent } from './team/team.component';
 import { TeamsService } from './teams.service';
 import { RouterModule } from '@angular/router';
+import { DetailsMainComponent } from './details-main/details-main.component';
+import { SharedModule } from '../shared/shared.module';
 
 
 
@@ -16,18 +18,21 @@ import { RouterModule } from '@angular/router';
     CreateComponent,
     DetailsComponent,
     EditComponent,
-    TeamComponent
+    TeamComponent,
+    DetailsMainComponent
   ],
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    SharedModule
   ],
   exports: [
     TeamListComponent,
     CreateComponent,
     DetailsComponent,
     EditComponent,
-    TeamComponent
+    TeamComponent,
+    DetailsMainComponent
   ],
   providers: [
     TeamsService

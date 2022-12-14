@@ -1,6 +1,6 @@
 <h2>All Players</h2>
 <div class="searchFields"></div>
-<div *ngIf="allPlayers">
+<div *ngIf="allPlayers.length > 0">
     <ul>
         <li *ngFor="let player of allPlayers">
             <div class="playerCard">
@@ -13,6 +13,6 @@
         </li>
     </ul>
 </div>
-<div *ngIf="!allPlayers">
-    No Players found!
+<div *ngIf="allPlayers.length === 0">
+    Loading...
 </div>

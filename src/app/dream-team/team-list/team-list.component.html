@@ -1,15 +1,19 @@
 <h2>All Dream Teams</h2>
 <div class="searchFields"></div>
-<div>
+<div *ngIf="allTeams">
     <ul>
         <li *ngFor="let team of allTeams">
             <div class="team">
-                <img src="../../../assets/images/emblem1.png">
+                <img *ngIf="team.emblem === 'emblem1'" src="../../../assets/images/emblem1.png">
+                <img *ngIf="team.emblem === 'emblem2'" src="../../../assets/images/emblem2.png">
                 <h4>{{team.name}}</h4>
                 <p>{{team.owner}}</p>
-                <p>{{team.ratings.join()}}</p>
+                <p>{{team.ratings | avgRating | number: '0.2' }}</p>
                 <button routerLink="/dream-teams/details/{{team.id}}">View More</button>
             </div>
         </li>
     </ul>
+</div>
+<div *ngIf="!allTeams">
+    Loading...
 </div>

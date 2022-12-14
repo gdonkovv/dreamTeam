@@ -12,31 +12,9 @@ export class DetailsComponent implements OnInit {
 
   @Input() teamView: Team;
 
-  imgEmblemSrc: string;
+  constructor() { }
 
-  constructor(private activatedRoute: ActivatedRoute, private teamsService: TeamsService) { }
+  ngOnInit(): void { }
 
-  ngOnInit(): void {
-
-    if (this.activatedRoute.snapshot.url[0].path === "details") {
-      this.teamsService.fetchTeamDetails(this.activatedRoute.snapshot.params['id']).subscribe((res) => {
-        if (res.emblem === "emblem1") {
-          this.imgEmblemSrc = "../../../assets/images/emblem1.png";
-        } else {
-          this.imgEmblemSrc = "../../../assets/images/emblem2.png";
-        }
-        console.log(res);
-        this.teamView = res;
-      });
-    } else {
-      if (this.teamView.emblem === "emblem1") {
-        this.imgEmblemSrc = "../../../assets/images/emblem1.png";
-      } else {
-        this.imgEmblemSrc = "../../../assets/images/emblem2.png";
-      }
-    }
-
-
-  }
 
 }

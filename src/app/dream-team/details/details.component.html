@@ -1,4 +1,4 @@
-<div>
+<div *ngIf="teamView">
     <div class="wrapper">
         <img class="pitch" src="../../../assets/images/imgFootballPitch.jpg">
         <div class="team">
@@ -66,7 +66,12 @@
     </div>
     <div class="mainInfo">
         <h2>{{teamView.name}}</h2>
-        <img src="{{imgEmblemSrc}}">
+        <img *ngIf="teamView.emblem === 'emblem1'" src="../../../assets/images/emblem1.png">
+        <img *ngIf="teamView.emblem === 'emblem2'" src="../../../assets/images/emblem2.png">
         <p>{{teamView.strategy}}</p>
+        <p>Rating: {{teamView.ratings | avgRating | number: '0.2'}}</p>
     </div>
+</div>
+<div *ngIf="!teamView">
+    Loading...
 </div>
