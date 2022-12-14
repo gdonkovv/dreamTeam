@@ -25,6 +25,11 @@ ul {
 
 .wrapper {
     position: relative;
+    width: 430px;
+    display: block;
+    height: 100%;
+    float: left;
+    margin-right: 20px;
 }
 
 .team {
@@ -40,4 +45,33 @@ ul {
     margin: 10px;
     padding-top: 15px;
     padding-bottom: 35px;
+}
+
+.teamInfo {
+    display: block;
+}
+
+h2 {
+    color: #8A1538;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+#strategy {
+    width: 300px;
+    height: 60px;
+}
+
+.players {
+    width: 300px;
+}
+
+.formField {
+    margin-bottom: 10px;
+    display: block;
+}
+
+.formField img{
+    width: 60px;
+    display: block;
 }

@@ -26,7 +26,6 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     this.teamsService.fetchTop3Teams().subscribe((res) => {
       this.top3Teams = res;
-      console.log(res);
     })
   }
 
