@@ -5,7 +5,8 @@
             <ul id="playersGK">
                 <li *ngFor="let p of selectedGK">
                     <img class="shirt" src="../../../assets/images/imgTShirt.png">
-                    <p>{{p.name}}</p>
+                    <p class="playerName">{{p.name}}</p>
+                    <p class="playerCountry">{{p.country}}</p>
                 </li>
             </ul>
         </div>
@@ -13,7 +14,8 @@
             <ul id="playersDF">
                 <li *ngFor="let p of selectedDF">
                     <img class="shirt" src="../../../assets/images/imgTShirt.png">
-                    <p>{{p.name}}</p>
+                    <p class="playerName">{{p.name}}</p>
+                    <p class="playerCountry">{{p.country}}</p>
                 </li>
             </ul>
         </div>
@@ -21,7 +23,8 @@
             <ul id="playersMF">
                 <li *ngFor="let p of selectedMF">
                     <img class="shirt" src="../../../assets/images/imgTShirt.png">
-                    <p>{{p.name}}</p>
+                    <p class="playerName">{{p.name}}</p>
+                    <p class="playerCountry">{{p.country}}</p>
                 </li>
             </ul>
         </div>
@@ -29,7 +32,8 @@
             <ul id="playersFW">
                 <li *ngFor="let p of selectedFW">
                     <img class="shirt" src="../../../assets/images/imgTShirt.png">
-                    <p>{{p.name}}</p>
+                    <p class="playerName">{{p.name}}</p>
+                    <p class="playerCountry">{{p.country}}</p>
                 </li>
             </ul>
         </div>
@@ -59,29 +63,33 @@
         </div>
 
         <div class="formField">
-            <label for="playersGK">Goalkeeper</label> <br>
-            <select (change)="updateSelectedPlayers(editForm.value.playersGK,'GK')" class="players" id="playersGK" name="playersGK" size="6" multiple [ngModel]="teamView.playersGK">
+            <label for="playersGK">Goalkeeper - Select 1</label> <br>
+            <select (change)="updateSelectedPlayers(editForm.value.playersGK,'GK')" class="players" id="playersGK"
+                name="playersGK" size="6" multiple [ngModel]="teamView.playersGK">
                 <option *ngFor="let plGK of allGK" value="{{plGK.id}}">{{plGK.name}}</option>
             </select>
         </div>
 
         <div class="formField">
-            <label for="playersDF">Defence</label> <br>
-            <select (change)="updateSelectedPlayers(editForm.value.playersDF,'DF')" class="players" id="playersDF" name="playersDF" size="6" multiple [ngModel]="teamView.playersDF">
+            <label for="playersDF">Defence - Select 4</label> <br>
+            <select (change)="updateSelectedPlayers(editForm.value.playersDF,'DF')" class="players" id="playersDF"
+                name="playersDF" size="6" multiple [ngModel]="teamView.playersDF">
                 <option *ngFor="let plDF of allDF" value="{{plDF.id}}">{{plDF.name}}</option>
             </select>
         </div>
 
         <div class="formField">
-            <label for="playersMF">Midfield</label> <br>
-            <select (change)="updateSelectedPlayers(editForm.value.playersMF,'MF')" class="players" id="playersMF" name="playersMF" size="6" multiple [ngModel]="teamView.playersMF">
+            <label for="playersMF">Midfield - Select 4</label> <br>
+            <select (change)="updateSelectedPlayers(editForm.value.playersMF,'MF')" class="players" id="playersMF"
+                name="playersMF" size="6" multiple [ngModel]="teamView.playersMF">
                 <option *ngFor="let plMF of allMF" value="{{plMF.id}}">{{plMF.name}}</option>
             </select>
         </div>
 
         <div class="formField">
-            <label for="playersFW">Forward</label> <br>
-            <select (change)="updateSelectedPlayers(editForm.value.playersFW,'FW')" class="players" id="playersFW" name="playersFW" size="6" multiple [ngModel]="teamView.playersFW">
+            <label for="playersFW">Forward - Select 2</label> <br>
+            <select (change)="updateSelectedPlayers(editForm.value.playersFW,'FW')" class="players" id="playersFW"
+                name="playersFW" size="6" multiple [ngModel]="teamView.playersFW">
                 <option *ngFor="let plFW of allFW" value="{{plFW.id}}">{{plFW.name}}</option>
             </select>
         </div>

@@ -53,7 +53,7 @@ export class CreateComponent implements OnInit {
       playersDF: string[],
       playersMF: string[],
       playersFW: string[]
-    }
+    }, form
   ) {
     let userData = this.authService.getUserData();
     let team = Object.assign(formData, { owner: userData.user.id, ownerEmail: userData.user.email, ratings: [] });

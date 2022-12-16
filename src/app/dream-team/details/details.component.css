@@ -3,9 +3,21 @@
     margin: auto;
 }
 
-p {
+p.playerName {
     margin: 0px;
+    margin-bottom: 3px;
     background-color: lavender;
+    text-align: center;
+    font-size: 14px;
+    padding-left: 5px;
+    padding-right: 5px;
+    border-radius: 5px;
+}
+
+p.playerCountry {
+    margin: 0px;
+    background-color: rgb(30, 30, 32);
+    color: lavender;
     text-align: center;
     font-size: 14px;
     padding-left: 5px;

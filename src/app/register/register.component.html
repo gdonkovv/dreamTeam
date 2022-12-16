@@ -2,16 +2,19 @@
 <form #registerForm="ngForm" (ngSubmit)="handleRegister(registerForm.value)">
     <div>
         <label for="email">Email</label>
-        <input type="text" name="email" id="email" ngModel>
+        <input type="text" name="email" id="email" ngModel required email #emailInput="ngModel">
+        <small *ngIf="emailInput.invalid && emailInput.touched">Email is required</small>
     </div>
     <div>
         <label for="password">Password</label>
-        <input type="password" name="password" id="password" ngModel>
+        <input type="password" name="password" id="password" ngModel required #passwordInput="ngModel">
+        <small *ngIf="passwordInput.invalid && passwordInput.touched">Password is required</small>
     </div>
     <div>
         <label for="repass">Repeat Password</label>
-        <input type="password" name="repass" id="repass" ngModel>
+        <input type="password" name="repass" id="repass" ngModel required #repassInput="ngModel">
+        <small *ngIf="repassInput.invalid && repassInput.touched">Repeat Password is required</small>
     </div>
-    <button>Register</button>
+    <button [disabled]="registerForm.invalid">Register</button>
 </form>
 <div>Already have an account? Login <a routerLink="/login">here</a></div>

@@ -9,7 +9,7 @@
                 <img *ngIf="first.emblem === 'emblem1'" src="../../assets/images/emblem1.png">
                 <img *ngIf="first.emblem === 'emblem2'" src="../../assets/images/emblem2.png">
                 <p>{{first.name}}</p>
-                <p>{{first.ratings | avgRating | number: '0.2'}}</p>
+                <p>Rating: {{first.ratings | avgRating | number: '0.2'}}</p>
                 <button routerLink="/dream-teams/details/{{first.id}}">View More</button>
             </div>
         </li>
@@ -19,7 +19,7 @@
                 <img *ngIf="second.emblem === 'emblem1'" src="../../assets/images/emblem1.png">
                 <img *ngIf="second.emblem === 'emblem2'" src="../../assets/images/emblem2.png">
                 <p>{{second.name}}</p>
-                <p>{{second.ratings | avgRating | number: '0.2'}}</p>
+                <p>Rating: {{second.ratings | avgRating | number: '0.2'}}</p>
                 <button routerLink="/dream-teams/details/{{second.id}}">View More</button>
             </div>
         </li>
@@ -29,12 +29,13 @@
                 <img *ngIf="third.emblem === 'emblem1'" src="../../assets/images/emblem1.png">
                 <img *ngIf="third.emblem === 'emblem2'" src="../../assets/images/emblem2.png">
                 <p>{{third.name}}</p>
-                <p>{{third.ratings | avgRating | number: '0.2'}}</p>
+                <p>Rating: {{third.ratings | avgRating | number: '0.2'}}</p>
                 <button routerLink="/dream-teams/details/{{third.id}}">View More</button>
             </div>
         </li>
-        <li *ngIf="!first">
-            No teams found!
+        <li *ngIf="!first" class="noTeams">
+            No teams are rated yet. <br>
+            Be the first one to rate a team!
         </li>
     </ul>
 </div>

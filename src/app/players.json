@@ -76,6 +76,188 @@
             "position": "DF",
             "teamIds": [],
             "id": "10"
+        },
+        {
+            "name": "Kawashima",
+            "country": "Japan",
+            "position": "GK",
+            "teamIds": [],
+            "id": "11"
+        },
+        {
+            "name": "Kim",
+            "country": "South Korea",
+            "position": "GK",
+            "teamIds": [],
+            "id": "12"
+        },
+        {
+            "name": "Talavera",
+            "country": "Mexico",
+            "position": "GK",
+            "teamIds": [],
+            "id": "13"
+        },
+        {
+            "name": "Bounou",
+            "country": "Morocco",
+            "position": "GK",
+            "teamIds": [],
+            "id": "14"
+        },
+        {
+            "name": "Pasveer",
+            "country": "Netherlands",
+            "position": "GK",
+            "teamIds": [],
+            "id": "15"
+        },
+        {
+            "name": "Szczesny",
+            "country": "Poland",
+            "position": "GK",
+            "teamIds": [],
+            "id": "16"
+        },
+        {
+            "name": "Pepe",
+            "country": "Portugal",
+            "position": "DF",
+            "teamIds": [],
+            "id": "17"
+        },
+        {
+            "name": "Mendy",
+            "country": "Senegal",
+            "position": "DF",
+            "teamIds": [],
+            "id": "18"
+        },
+        {
+            "name": "Milenkovic",
+            "country": "Serbia",
+            "position": "DF",
+            "teamIds": [],
+            "id": "19"
+        },
+        {
+            "name": "Azpilicueta",
+            "country": "Spain",
+            "position": "DF",
+            "teamIds": [],
+            "id": "20"
+        },
+        {
+            "name": "Hakimi",
+            "country": "Morocco",
+            "position": "DF",
+            "teamIds": [],
+            "id": "21"
+        },
+        {
+            "name": "Ziyech",
+            "country": "Morocco",
+            "position": "MF",
+            "teamIds": [],
+            "id": "22"
+        },
+        {
+            "name": "Kimmich",
+            "country": "Germany",
+            "position": "MF",
+            "teamIds": [],
+            "id": "23"
+        },
+        {
+            "name": "Guendogan",
+            "country": "Germany",
+            "position": "MF",
+            "teamIds": [],
+            "id": "24"
+        },
+        {
+            "name": "Henderson",
+            "country": "England",
+            "position": "MF",
+            "teamIds": [],
+            "id": "25"
+        },
+        {
+            "name": "Eriksen",
+            "country": "Denmark",
+            "position": "MF",
+            "teamIds": [],
+            "id": "26"
+        },
+        {
+            "name": "Kovacic",
+            "country": "Croatia",
+            "position": "MF",
+            "teamIds": [],
+            "id": "27"
+        },
+        {
+            "name": "Lukaku",
+            "country": "Belgium",
+            "position": "FW",
+            "teamIds": [],
+            "id": "28"
+        },
+        {
+            "name": "Neymar",
+            "country": "Brazil",
+            "position": "FW",
+            "teamIds": [],
+            "id": "29"
+        },
+        {
+            "name": "Kane",
+            "country": "England",
+            "position": "FW",
+            "teamIds": [],
+            "id": "30"
+        },
+        {
+            "name": "Mbappe",
+            "country": "France",
+            "position": "FW",
+            "teamIds": [],
+            "id": "31"
+        },
+        {
+            "name": "Giroud",
+            "country": "France",
+            "position": "FW",
+            "teamIds": [],
+            "id": "32"
+        },
+        {
+            "name": "Depay",
+            "country": "Netherlands",
+            "position": "FW",
+            "teamIds": [],
+            "id": "33"
+        },
+        {
+            "name": "Lewandowski",
+            "country": "Poland",
+            "position": "FW",
+            "teamIds": [],
+            "id": "34"
+        },
+        {
+            "name": "Ronaldo",
+            "country": "Portugal",
+            "position": "FW",
+            "teamIds": [],
+            "id": "35"
+        },
+        {
+            "name": "Suarez",
+            "country": "Uruguay",
+            "position": "FW",
+            "teamIds": [],
+            "id": "36"
         }
     ]
 }

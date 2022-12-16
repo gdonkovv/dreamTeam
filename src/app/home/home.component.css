@@ -18,8 +18,8 @@ div .topCard {
     margin-bottom: 20px;
 }
 
-.topCard img{
-    object-fit:contain;
+.topCard img {
+    object-fit: contain;
     width: 90%;
     height: auto;
     margin: auto;
@@ -34,6 +34,12 @@ li {
     position: relative;
 }
 
+.noTeams {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    width: 100%;
+}
+
 ul {
     list-style-type: none;
     padding: 0;
@@ -45,7 +51,7 @@ ul {
 }
 
 .topSection {
-    background-color:lavender;
+    background-color: lavender;
 }
 
 button {
@@ -58,9 +64,10 @@ button {
     display: inline-block;
     font-size: 16px;
     border-radius: 20px;
-  }
+}
 
-  button:hover {
-    background-color: gray; /* Green */
+button:hover {
+    background-color: gray;
+    /* Green */
     color: #8A1538;
-  }
+}

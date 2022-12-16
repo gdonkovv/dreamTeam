@@ -37,3 +37,11 @@ h2 {
   margin-top: 5px;
   margin-bottom: 5px;
 }
+
+input.ng-invalid.ng-touched {
+  border: red 1px solid;
+}
+
+small {
+  color: red;
+}

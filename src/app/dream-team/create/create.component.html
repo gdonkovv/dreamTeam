@@ -5,7 +5,8 @@
             <ul id="playersGK">
                 <li *ngFor="let p of selectedGK">
                     <img class="shirt" src="../../../assets/images/imgTShirt.png">
-                    <p>{{p.name}}</p>
+                    <p class="playerName">{{p.name}}</p>
+                    <p class="playerCountry">{{p.country}}</p>
                 </li>
             </ul>
         </div>
@@ -13,7 +14,8 @@
             <ul id="playersDF">
                 <li *ngFor="let p of selectedDF">
                     <img class="shirt" src="../../../assets/images/imgTShirt.png">
-                    <p>{{p.name}}</p>
+                    <p class="playerName">{{p.name}}</p>
+                    <p class="playerCountry">{{p.country}}</p>
                 </li>
             </ul>
         </div>
@@ -21,7 +23,8 @@
             <ul id="playersMF">
                 <li *ngFor="let p of selectedMF">
                     <img class="shirt" src="../../../assets/images/imgTShirt.png">
-                    <p>{{p.name}}</p>
+                    <p class="playerName">{{p.name}}</p>
+                    <p class="playerCountry">{{p.country}}</p>
                 </li>
             </ul>
         </div>
@@ -29,7 +32,8 @@
             <ul id="playersFW">
                 <li *ngFor="let p of selectedFW">
                     <img class="shirt" src="../../../assets/images/imgTShirt.png">
-                    <p>{{p.name}}</p>
+                    <p class="playerName">{{p.name}}</p>
+                    <p class="playerCountry">{{p.country}}</p>
                 </li>
             </ul>
         </div>
@@ -37,57 +41,65 @@
 </div>
 <div class="wrapper">
     <h2>Create your dream team</h2>
-    <form #createForm="ngForm" (ngSubmit)="createTeamHandler(createForm.value)">
+    <form #createForm="ngForm" (ngSubmit)="createTeamHandler(createForm.value, createForm)">
         <div class="formField">
             <label for="name">Team Name</label> <br>
-            <input type="text" name="name" id="name" ngModel>
+            <input type="text" name="name" id="name" ngModel required #name="ngModel">
+            <small *ngIf="name.invalid && name.touched">Team Name is required</small>
         </div>
 
         <div class="formField">
             <label for="emblem">Emblem 1</label>
-            <input type="radio" id="emblem1" name="emblem" value="emblem1" ngModel>
+            <input type="radio" id="emblem1" name="emblem" value="emblem1" ngModel required #emblem="ngModel">
             <br>
             <label for="emblem">Emblem 2</label>
-            <input type="radio" id="emblem2" name="emblem" value="emblem2" ngModel>
+            <input type="radio" id="emblem2" name="emblem" value="emblem2" ngModel required #emblem="ngModel">
             <img *ngIf="createForm.value.emblem === 'emblem1'" src="../../../assets/images/emblem1.png">
             <img *ngIf="createForm.value.emblem === 'emblem2'" src="../../../assets/images/emblem2.png">
+            <small *ngIf="emblem.invalid && emblem.touched">Emblem is required</small>
         </div>
 
         <div class="formField">
             <label for="strategy">Strategy</label> <br>
-            <textarea name="strategy" id="strategy" cols="30" rows="10" ngModel></textarea>
+            <textarea name="strategy" id="strategy" cols="30" rows="10" ngModel required #strategy="ngModel"></textarea>
+            <small *ngIf="strategy.invalid && strategy.touched">Strategy is required</small>
         </div>
 
         <div class="formField">
-            <label for="playersGK">Goalkeeper</label> <br>
-            <select (change)="updateSelectedPlayers(createForm.value.playersGK,'GK')" class="players" id="playersGK" name="playersGK" size="6" multiple ngModel>
+            <label for="playersGK">Goalkeeper - Select 1</label> <br>
+            <select (change)="updateSelectedPlayers(createForm.value.playersGK,'GK')" class="players" id="playersGK"
+                name="playersGK" size="6" multiple ngModel required arrLength requiredLength="1">
                 <option *ngFor="let plGK of allGK" value="{{plGK.id}}">{{plGK.name}}</option>
             </select>
         </div>
 
         <div class="formField">
-            <label for="playersDF">Defence</label> <br>
-            <select (change)="updateSelectedPlayers(createForm.value.playersDF,'DF')"class="players" id="playersDF" name="playersDF" size="6" multiple ngModel>
+            <label for="playersDF">Defence - Select 4</label> <br>
+            <select (change)="updateSelectedPlayers(createForm.value.playersDF,'DF')" class="players" id="playersDF"
+                name="playersDF" size="6" multiple ngModel required arrLength requiredLength="4">
                 <option *ngFor="let plDF of allDF" value="{{plDF.id}}">{{plDF.name}}</option>
             </select>
         </div>
 
         <div class="formField">
-            <label for="playersMF">Midfield</label> <br>
-            <select (change)="updateSelectedPlayers(createForm.value.playersMF,'MF')" class="players" id="playersMF" name="playersMF" size="6" multiple ngModel>
+            <label for="playersMF">Midfield - Select 4</label> <br>
+            <select (change)="updateSelectedPlayers(createForm.value.playersMF,'MF')" class="players" id="playersMF"
+                name="playersMF" size="6" multiple ngModel required arrLength requiredLength="4">
                 <option *ngFor="let plMF of allMF" value="{{plMF.id}}">{{plMF.name}}</option>
             </select>
         </div>
 
         <div class="formField">
-            <label for="playersFW">Forward</label> <br>
-            <select (change)="updateSelectedPlayers(createForm.value.playersFW,'FW')" class="players" id="playersFW" name="playersFW" size="6" multiple ngModel>
+            <label for="playersFW">Forward - Select 2</label> <br>
+            <select (change)="updateSelectedPlayers(createForm.value.playersFW,'FW')" class="players" id="playersFW"
+                name="playersFW" size="6" multiple ngModel required arrLength requiredLength="2">
                 <option *ngFor="let plFW of allFW" value="{{plFW.id}}">{{plFW.name}}</option>
             </select>
         </div>
 
         <br>
-        <button>Save Team</button>
+        <button [disabled]="createForm.invalid">Save Team</button>
+        <!-- [disabled]="createForm.invalid" -->
 
     </form>
 </div>
