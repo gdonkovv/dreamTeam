@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/auth.service';
 import { Team } from 'src/app/models/team';
 import { TeamsService } from '../teams.service';
 
@@ -10,13 +11,15 @@ import { TeamsService } from '../teams.service';
 export class TeamListComponent implements OnInit {
 
   allTeams: Team[] = [];
+  userData: { user, token } | null = null;
 
-  constructor(private teamsService: TeamsService) { }
+  constructor(private teamsService: TeamsService, private authService: AuthService) { }
 
   ngOnInit(): void {
     this.teamsService.fetchAllTeams().subscribe((res) => {
       this.allTeams = res;
     });
 
+    this.userData = this.authService.getUserData();
   }
 }

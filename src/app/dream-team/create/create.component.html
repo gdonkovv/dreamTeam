@@ -65,51 +65,51 @@
 </div>
 <div class="wrapper">
     <h2>Create your dream team</h2>
-    <form>
+    <form #createForm="ngForm" (ngSubmit)="createTeamHandler(createForm.value)">
         <div class="formField">
             <label for="name">Team Name</label> <br>
-            <input type="text" name="name" id="name">
+            <input type="text" name="name" id="name" ngModel>
         </div>
 
         <div class="formField">
             <label for="emblem">Emblem 1</label>
-            <input #emblem1 checked type="radio" id="emblem1" name="emblem" value="emblem1">
+            <input #emblem1 checked type="radio" id="emblem1" name="emblem" value="emblem1" ngModel>
             <br>
             <label for="emblem">Emblem 2</label>
-            <input #emblem2 type="radio" id="emblem2" name="emblem" value="emblem2">
+            <input #emblem2 type="radio" id="emblem2" name="emblem" value="emblem2" ngModel>
             <img src="../../../assets/images/emblem1.png">
         </div>
 
         <div class="formField">
             <label for="strategy">Strategy</label> <br>
-            <textarea name="strategy" id="strategy" cols="30" rows="10"></textarea>
+            <textarea name="strategy" id="strategy" cols="30" rows="10" ngModel></textarea>
         </div>
 
         <div class="formField">
             <label for="playersGK">Goalkeeper</label> <br>
-            <select class="players" id="playersGK" name="playersGK" size="6">
-                <option value="1">Messi</option>
+            <select class="players" id="playersGK" name="playersGK" size="6" multiple ngModel>
+                <option *ngFor="let plGK of allGK" value="{{plGK.id}}">{{plGK.name}}</option>
             </select>
         </div>
 
         <div class="formField">
             <label for="playersDF">Defence</label> <br>
-            <select class="players" id="playersDF" name="playersDF" size="6">
-                <option value="1">Messi</option>
+            <select class="players" id="playersDF" name="playersDF" size="6" multiple ngModel>
+                <option *ngFor="let plDF of allDF" value="{{plDF.id}}">{{plDF.name}}</option>
             </select>
         </div>
 
         <div class="formField">
             <label for="playersMF">Midfield</label> <br>
-            <select class="players" id="playersMF" name="playersMF" size="6">
-                <option value="1">Messi</option>
+            <select class="players" id="playersMF" name="playersMF" size="6" multiple ngModel>
+                <option *ngFor="let plMF of allMF" value="{{plMF.id}}">{{plMF.name}}</option>
             </select>
         </div>
 
         <div class="formField">
             <label for="playersFW">Forward</label> <br>
-            <select class="players" id="playersFW" name="playersFW" size="6">
-                <option value="1">Messi</option>
+            <select class="players" id="playersFW" name="playersFW" size="6" multiple ngModel>
+                <option *ngFor="let plFW of allFW" value="{{plFW.id}}">{{plFW.name}}</option>
             </select>
         </div>
 

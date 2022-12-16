@@ -9,6 +9,7 @@ import { TeamsService } from './teams.service';
 import { RouterModule } from '@angular/router';
 import { DetailsMainComponent } from './details-main/details-main.component';
 import { SharedModule } from '../shared/shared.module';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -24,7 +25,8 @@ import { SharedModule } from '../shared/shared.module';
   imports: [
     CommonModule,
     RouterModule,
-    SharedModule
+    SharedModule,
+    FormsModule
   ],
   exports: [
     TeamListComponent,

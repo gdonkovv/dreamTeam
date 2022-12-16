@@ -7,6 +7,7 @@ export interface Team {
     playersMF: string[];
     playersFW: string[];
     owner: string;
-    ratings: number[];
+    ownerEmail: string;
+    ratings: [];
     id: string;
 }

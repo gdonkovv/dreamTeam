@@ -7,9 +7,11 @@
                 <img *ngIf="team.emblem === 'emblem1'" src="../../../assets/images/emblem1.png">
                 <img *ngIf="team.emblem === 'emblem2'" src="../../../assets/images/emblem2.png">
                 <h4>{{team.name}}</h4>
-                <p>{{team.owner}}</p>
-                <p>{{team.ratings | avgRating | number: '0.2' }}</p>
-                <button routerLink="/dream-teams/details/{{team.id}}">View More</button>
+                <p>{{team.ownerEmail}}</p>
+                <p *ngIf="team.ratings">{{team.ratings | avgRating | number: '0.2' }}</p>
+                <p *ngIf="!team.ratings">Team not rated yet</p>
+                <button *ngIf="userData.user.id === team.owner" routerLink="/dream-teams/my-team">View More</button>
+                <button *ngIf="userData.user.id !== team.owner"routerLink="/dream-teams/details/{{team.id}}">View More</button>
             </div>
         </li>
     </ul>

@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/auth.service';
 import { Team } from 'src/app/models/team';
 import { TeamsService } from '../teams.service';
@@ -21,5 +21,6 @@ export class TeamComponent implements OnInit {
       this.userTeam = res;
     });
   }
+
 
 }

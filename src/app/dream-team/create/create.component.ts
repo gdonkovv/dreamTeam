@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthService } from 'src/app/auth.service';
+import { Player } from 'src/app/models/player';
+import { PlayersService } from 'src/app/players/players.service';
+import { TeamsService } from '../teams.service';
 
 @Component({
   selector: 'app-create',
@@ -7,9 +12,50 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CreateComponent implements OnInit {
 
-  constructor() { }
+  allGK: Player[];
+  allDF: Player[];
+  allMF: Player[];
+  allFW: Player[];
+
+  constructor(
+    private playersService: PlayersService,
+    private teamsService: TeamsService,
+    private authService: AuthService,
+    private router: Router) { }
 
   ngOnInit(): void {
+    this.playersService.fetchAllPlayersByPosition("GK").subscribe((res) => {
+      this.allGK = res;
+    });
+    this.playersService.fetchAllPlayersByPosition("DF").subscribe((res) => {
+      this.allDF = res;
+    });
+    this.playersService.fetchAllPlayersByPosition("MF").subscribe((res) => {
+      this.allMF = res;
+    });
+    this.playersService.fetchAllPlayersByPosition("FW").subscribe((res) => {
+      this.allFW = res;
+    });
+
+  }
+
+  createTeamHandler(
+    formData: {
+      name: string,
+      strategy: string,
+      emblem: string,
+      playersGK: string[],
+      playersDF: string[],
+      playersMF: string[],
+      playersFW: string[]
+    }
+  ) {
+    let userData = this.authService.getUserData();
+    let team = Object.assign(formData, { owner: userData.user.id, ownerEmail: userData.user.email, ratings: [] });
+
+    this.teamsService.createTeam(team).subscribe((res) => {
+      this.router.navigate(['dream-teams']);
+    });
   }
 
 }

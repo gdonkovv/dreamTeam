@@ -2,6 +2,6 @@ export interface Player {
     name: string;
     country: string;
     position: string;
-    teamIds: any[];
+    teamIds: string[];
     id: string;
 }

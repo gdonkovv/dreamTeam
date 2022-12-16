@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { DetailsMainComponent } from './dream-team/details-main/details-main.component';
+import { EditComponent } from './dream-team/edit/edit.component';
 import { TeamListComponent } from './dream-team/team-list/team-list.component';
 import { TeamComponent } from './dream-team/team/team.component';
 import { HomeComponent } from './home/home.component';
@@ -32,7 +33,16 @@ const routes: Routes = [
       },
       {
         path: "my-team",
-        component: TeamComponent
+        children: [
+          {
+            path: "",
+            component: TeamComponent
+          },
+          {
+            path: "edit/:id",
+            component: EditComponent
+          }
+        ]
       },
       {
         path: "details/:id",

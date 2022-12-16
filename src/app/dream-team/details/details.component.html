@@ -4,72 +4,48 @@
         <div class="team">
             <div>
                 <ul id="playersGK">
-                    <li>
+                    <li *ngFor="let p of teamView.playersGK">
                         <img class="shirt" src="../../../assets/images/imgTShirt.png">
-                        <p>Player name</p>
+                        <p>{{p}}</p>
                     </li>
                 </ul>
             </div>
             <div>
                 <ul id="playersDF">
-                    <li>
+                    <li *ngFor="let p of teamView.playersDF">
                         <img class="shirt" src="../../../assets/images/imgTShirt.png">
-                        <p>Player name</p>
-                    </li>
-                    <li>
-                        <img class="shirt" src="../../../assets/images/imgTShirt.png">
-                        <p>Player name</p>
-                    </li>
-                    <li>
-                        <img class="shirt" src="../../../assets/images/imgTShirt.png">
-                        <p>Player name</p>
-                    </li>
-                    <li>
-                        <img class="shirt" src="../../../assets/images/imgTShirt.png">
-                        <p>Player name</p>
+                        <p>{{p}}</p>
                     </li>
                 </ul>
             </div>
             <div>
                 <ul id="playersMF">
-                    <li>
+                    <li *ngFor="let p of teamView.playersMF">
                         <img class="shirt" src="../../../assets/images/imgTShirt.png">
-                        <p>Player name</p>
-                    </li>
-                    <li>
-                        <img class="shirt" src="../../../assets/images/imgTShirt.png">
-                        <p>Player name</p>
-                    </li>
-                    <li>
-                        <img class="shirt" src="../../../assets/images/imgTShirt.png">
-                        <p>Player name</p>
-                    </li>
-                    <li>
-                        <img class="shirt" src="../../../assets/images/imgTShirt.png">
-                        <p>Player name</p>
+                        <p>{{p}}</p>
                     </li>
                 </ul>
             </div>
             <div>
                 <ul id="playersFW">
-                    <li>
+                    <li *ngFor="let p of teamView.playersFW">
                         <img class="shirt" src="../../../assets/images/imgTShirt.png">
-                        <p>Player name</p>
-                    </li>
-                    <li>
-                        <img class="shirt" src="../../../assets/images/imgTShirt.png">
-                        <p>Player name</p>
+                        <p>{{p}}</p>
                     </li>
                 </ul>
             </div>
         </div>
     </div>
-    <div class="mainInfo">
-        <h2>{{teamView.name}}</h2>
-        <img *ngIf="teamView.emblem === 'emblem1'" src="../../../assets/images/emblem1.png">
-        <img *ngIf="teamView.emblem === 'emblem2'" src="../../../assets/images/emblem2.png">
-        <p>{{teamView.strategy}}</p>
-        <p>Rating: {{teamView.ratings | avgRating | number: '0.2'}}</p>
+    <div class="wrapper">
+        <div class="mainInfo">
+            <h2>{{teamView.name}}</h2>
+            <img *ngIf="teamView.emblem === 'emblem1'" src="../../../assets/images/emblem1.png">
+            <img *ngIf="teamView.emblem === 'emblem2'" src="../../../assets/images/emblem2.png">
+            <p>Strategy: {{teamView.strategy}}</p>
+            <p *ngIf="teamView.ratings">Rating: {{teamView.ratings | avgRating | number: '0.2'}}</p>
+            <p *ngIf="!teamView.ratings">Rating: Not rated yet</p>
+        </div>
+        <button routerLink="edit/{{teamView.id}}">Edit Team</button>
     </div>
 </div>
 <div *ngIf="!teamView">

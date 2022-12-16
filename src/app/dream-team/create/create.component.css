@@ -71,7 +71,26 @@ h2 {
     display: block;
 }
 
-.formField img{
+.formField img {
     width: 60px;
     display: block;
+}
+
+button {
+    background-color: #8A1538;
+    border: none;
+    color: lavender;
+    padding: 10px 25px;
+    margin: 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 20px;
+}
+
+button:hover {
+    background-color: #4d061b;
+    /* Green */
+    color: lavender;
 }
