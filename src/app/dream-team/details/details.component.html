@@ -4,33 +4,33 @@
         <div class="team">
             <div>
                 <ul id="playersGK">
-                    <li *ngFor="let p of teamView.playersGK">
+                    <li *ngFor="let p of selectedGK">
                         <img class="shirt" src="../../../assets/images/imgTShirt.png">
-                        <p>{{p}}</p>
+                        <p>{{p.name}}</p>
                     </li>
                 </ul>
             </div>
             <div>
                 <ul id="playersDF">
-                    <li *ngFor="let p of teamView.playersDF">
+                    <li *ngFor="let p of selectedDF">
                         <img class="shirt" src="../../../assets/images/imgTShirt.png">
-                        <p>{{p}}</p>
+                        <p>{{p.name}}</p>
                     </li>
                 </ul>
             </div>
             <div>
                 <ul id="playersMF">
-                    <li *ngFor="let p of teamView.playersMF">
+                    <li *ngFor="let p of selectedMF">
                         <img class="shirt" src="../../../assets/images/imgTShirt.png">
-                        <p>{{p}}</p>
+                        <p>{{p.name}}</p>
                     </li>
                 </ul>
             </div>
             <div>
                 <ul id="playersFW">
-                    <li *ngFor="let p of teamView.playersFW">
+                    <li *ngFor="let p of selectedFW">
                         <img class="shirt" src="../../../assets/images/imgTShirt.png">
-                        <p>{{p}}</p>
+                        <p>{{p.name}}</p>
                     </li>
                 </ul>
             </div>
@@ -46,6 +46,7 @@
             <p *ngIf="!teamView.ratings">Rating: Not rated yet</p>
         </div>
         <button routerLink="edit/{{teamView.id}}">Edit Team</button>
+        <button (click)="deleteTeamHandler(teamView.id)">Delete Team</button>
     </div>
 </div>
 <div *ngIf="!teamView">

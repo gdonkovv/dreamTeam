@@ -17,6 +17,11 @@ export class CreateComponent implements OnInit {
   allMF: Player[];
   allFW: Player[];
 
+  selectedGK: Player[];
+  selectedDF: Player[];
+  selectedMF: Player[];
+  selectedFW: Player[];
+
   constructor(
     private playersService: PlayersService,
     private teamsService: TeamsService,
@@ -53,9 +58,21 @@ export class CreateComponent implements OnInit {
     let userData = this.authService.getUserData();
     let team = Object.assign(formData, { owner: userData.user.id, ownerEmail: userData.user.email, ratings: [] });
 
-    this.teamsService.createTeam(team).subscribe((res) => {
+    this.teamsService.createTeam(team).subscribe((res: { name: string }) => {
       this.router.navigate(['dream-teams']);
     });
+  }
+
+  updateSelectedPlayers(idsArray: string[], position: string) {
+    if (position === "GK") {
+      this.selectedGK = this.allGK.filter((p) => idsArray.includes(p.id));
+    } else if (position === "DF") {
+      this.selectedDF = this.allDF.filter((p) => idsArray.includes(p.id));
+    } else if (position === "MF") {
+      this.selectedMF = this.allMF.filter((p) => idsArray.includes(p.id));
+    } else if (position === "FW") {
+      this.selectedFW = this.allFW.filter((p) => idsArray.includes(p.id));
+    }
   }
 
 }

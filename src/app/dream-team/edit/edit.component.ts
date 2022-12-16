@@ -20,11 +20,16 @@ export class EditComponent implements OnInit {
   allMF: Player[];
   allFW: Player[];
 
+  selectedGK: Player[];
+  selectedDF: Player[];
+  selectedMF: Player[];
+  selectedFW: Player[];
+
   constructor(private playersService: PlayersService,
     private teamsService: TeamsService,
-    private authService: AuthService,
     private activatedRoute: ActivatedRoute,
-    private router: Router) { }
+    private router: Router) {
+  }
 
   ngOnInit(): void {
     this.playersService.fetchAllPlayersByPosition("GK").subscribe((res) => {
@@ -43,6 +48,10 @@ export class EditComponent implements OnInit {
     this.teamsService.fetchTeamDetails(this.activatedRoute.snapshot.params['id']).subscribe((res: Team) => {
       if (res) {
         this.teamView = res;
+        this.updateSelectedPlayers(res.playersGK, "GK");
+        this.updateSelectedPlayers(res.playersDF, "DF");
+        this.updateSelectedPlayers(res.playersMF, "MF");
+        this.updateSelectedPlayers(res.playersFW, "FW");
       } else {
         this.teamView = null;
       }
@@ -67,5 +76,20 @@ export class EditComponent implements OnInit {
     this.teamsService.editTeam(this.teamView.id, updatedTeam).subscribe((res) => {
       this.router.navigate(['dream-teams/my-team']);
     })
+  }
+
+  updateSelectedPlayers(idsArray: string[], position: string) {
+
+    setTimeout(() => {
+      if (position === "GK") {
+        this.selectedGK = this.allGK.filter((p) => idsArray.includes(p.id));
+      } else if (position === "DF") {
+        this.selectedDF = this.allDF.filter((p) => idsArray.includes(p.id));
+      } else if (position === "MF") {
+        this.selectedMF = this.allMF.filter((p) => idsArray.includes(p.id));
+      } else if (position === "FW") {
+        this.selectedFW = this.allFW.filter((p) => idsArray.includes(p.id));
+      }
+    }, 500);
   }
 }

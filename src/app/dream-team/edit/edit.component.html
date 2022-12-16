@@ -3,66 +3,37 @@
     <div class="team">
         <div>
             <ul id="playersGK">
-                <li>
+                <li *ngFor="let p of selectedGK">
                     <img class="shirt" src="../../../assets/images/imgTShirt.png">
-                    <p>Player name</p>
+                    <p>{{p.name}}</p>
                 </li>
             </ul>
         </div>
         <div>
             <ul id="playersDF">
-                <li>
+                <li *ngFor="let p of selectedDF">
                     <img class="shirt" src="../../../assets/images/imgTShirt.png">
-                    <p>Player name</p>
-                </li>
-                <li>
-                    <img class="shirt" src="../../../assets/images/imgTShirt.png">
-                    <p>Player name</p>
-                </li>
-                <li>
-                    <img class="shirt" src="../../../assets/images/imgTShirt.png">
-                    <p>Player name</p>
-                </li>
-                <li>
-                    <img class="shirt" src="../../../assets/images/imgTShirt.png">
-                    <p>Player name</p>
+                    <p>{{p.name}}</p>
                 </li>
             </ul>
         </div>
         <div>
             <ul id="playersMF">
-                <li>
+                <li *ngFor="let p of selectedMF">
                     <img class="shirt" src="../../../assets/images/imgTShirt.png">
-                    <p>Player name</p>
-                </li>
-                <li>
-                    <img class="shirt" src="../../../assets/images/imgTShirt.png">
-                    <p>Player name</p>
-                </li>
-                <li>
-                    <img class="shirt" src="../../../assets/images/imgTShirt.png">
-                    <p>Player name</p>
-                </li>
-                <li>
-                    <img class="shirt" src="../../../assets/images/imgTShirt.png">
-                    <p>Player name</p>
+                    <p>{{p.name}}</p>
                 </li>
             </ul>
         </div>
         <div>
             <ul id="playersFW">
-                <li>
+                <li *ngFor="let p of selectedFW">
                     <img class="shirt" src="../../../assets/images/imgTShirt.png">
-                    <p>Player name</p>
-                </li>
-                <li>
-                    <img class="shirt" src="../../../assets/images/imgTShirt.png">
-                    <p>Player name</p>
+                    <p>{{p.name}}</p>
                 </li>
             </ul>
         </div>
     </div>
-
 </div>
 <div *ngIf="teamView" class="wrapper">
     <h2>Edit your dream team</h2>
@@ -78,7 +49,8 @@
             <br>
             <label for="emblem">Emblem 2</label>
             <input #emblem2 type="radio" id="emblem2" name="emblem" value="emblem2" [ngModel]="teamView.emblem">
-            <img src="../../../assets/images/emblem1.png">
+            <img *ngIf="editForm.value.emblem === 'emblem1'" src="../../../assets/images/emblem1.png">
+            <img *ngIf="editForm.value.emblem === 'emblem2'" src="../../../assets/images/emblem2.png">
         </div>
 
         <div class="formField">
@@ -88,28 +60,28 @@
 
         <div class="formField">
             <label for="playersGK">Goalkeeper</label> <br>
-            <select class="players" id="playersGK" name="playersGK" size="6" multiple [ngModel]="teamView.playersGK">
+            <select (change)="updateSelectedPlayers(editForm.value.playersGK,'GK')" class="players" id="playersGK" name="playersGK" size="6" multiple [ngModel]="teamView.playersGK">
                 <option *ngFor="let plGK of allGK" value="{{plGK.id}}">{{plGK.name}}</option>
             </select>
         </div>
 
         <div class="formField">
             <label for="playersDF">Defence</label> <br>
-            <select class="players" id="playersDF" name="playersDF" size="6" multiple [ngModel]="teamView.playersDF">
+            <select (change)="updateSelectedPlayers(editForm.value.playersDF,'DF')" class="players" id="playersDF" name="playersDF" size="6" multiple [ngModel]="teamView.playersDF">
                 <option *ngFor="let plDF of allDF" value="{{plDF.id}}">{{plDF.name}}</option>
             </select>
         </div>
 
         <div class="formField">
             <label for="playersMF">Midfield</label> <br>
-            <select class="players" id="playersMF" name="playersMF" size="6" multiple [ngModel]="teamView.playersMF">
+            <select (change)="updateSelectedPlayers(editForm.value.playersMF,'MF')" class="players" id="playersMF" name="playersMF" size="6" multiple [ngModel]="teamView.playersMF">
                 <option *ngFor="let plMF of allMF" value="{{plMF.id}}">{{plMF.name}}</option>
             </select>
         </div>
 
         <div class="formField">
             <label for="playersFW">Forward</label> <br>
-            <select class="players" id="playersFW" name="playersFW" size="6" multiple [ngModel]="teamView.playersFW">
+            <select (change)="updateSelectedPlayers(editForm.value.playersFW,'FW')" class="players" id="playersFW" name="playersFW" size="6" multiple [ngModel]="teamView.playersFW">
                 <option *ngFor="let plFW of allFW" value="{{plFW.id}}">{{plFW.name}}</option>
             </select>
         </div>

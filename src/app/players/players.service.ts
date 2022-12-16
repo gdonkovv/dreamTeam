@@ -22,4 +22,12 @@ export class PlayersService {
       }))
   }
 
+  fetchPlayersByIds(playersIdsArr: string[]) {
+    return this.http.get<Player[]>("https://dream-team-dc354-default-rtdb.europe-west1.firebasedatabase.app/players.json")
+      .pipe(map((res) => {
+        const filteredPlayers = res.filter((p) => playersIdsArr.includes(p.id));
+        return filteredPlayers;
+      }))
+  }
+
 }
