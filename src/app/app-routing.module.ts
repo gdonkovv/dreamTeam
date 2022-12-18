@@ -9,6 +9,8 @@ import { LoginComponent } from './login/login.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { ListComponent } from './players/list/list.component';
 import { RegisterComponent } from './register/register.component';
+import { IsGuestService } from './guards/is-guest.service';
+import { IsLoggedService } from './guards/is-logged.service';
 
 const routes: Routes = [
   {
@@ -18,11 +20,13 @@ const routes: Routes = [
   },
   {
     path: "login",
-    component: LoginComponent
+    component: LoginComponent,
+    canActivate: [IsGuestService]
   },
   {
     path: "register",
-    component: RegisterComponent
+    component: RegisterComponent,
+    canActivate: [IsGuestService]
   },
   {
     path: "dream-teams",
@@ -42,7 +46,8 @@ const routes: Routes = [
             path: "edit/:id",
             component: EditComponent
           }
-        ]
+        ],
+        canActivate: [IsLoggedService]
       },
       {
         path: "details/:id",

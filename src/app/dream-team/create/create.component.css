@@ -107,6 +107,11 @@ button:hover {
     color: lavender;
 }
 
+button:disabled {
+    background-color: #a9526c;
+    color: lavender;
+  }
+
 input.ng-invalid.ng-touched {
     border: red 1px solid;
 }
@@ -118,6 +123,9 @@ textarea.ng-invalid.ng-touched {
 select.ng-invalid.ng-touched {
     border: red 1px solid;
 }
-small{
+
+small {
     color: red;
+    margin-left: 3px;
+    display: block;
 }

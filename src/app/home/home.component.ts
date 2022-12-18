@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TeamsService } from '../dream-team/teams.service';
 import { Team } from '../models/team';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-home',
@@ -10,6 +11,7 @@ import { Team } from '../models/team';
 export class HomeComponent implements OnInit {
 
   top3Teams: Team[] = [];
+  userData: { user, token } | null = null;
   get first() {
     return this.top3Teams[0];
   }
@@ -21,12 +23,14 @@ export class HomeComponent implements OnInit {
     return this.top3Teams[2];
   }
 
-  constructor(private teamsService: TeamsService) { }
+  constructor(private teamsService: TeamsService, private authService: AuthService) { }
 
   ngOnInit(): void {
     this.teamsService.fetchTop3Teams().subscribe((res) => {
       this.top3Teams = res;
-    })
+    });
+
+    this.userData = this.authService.getUserData();
   }
 
 }

@@ -1,13 +1,17 @@
 <h2>Login</h2>
-<form #loginForm="ngForm" (ngSubmit)="handleLogin(loginForm.value)">
+<div class="errorBox" *ngIf="errorBox">{{errorBox}}</div>
+<form #loginForm="ngForm" (ngSubmit)="handleLogin(loginForm.value, loginForm)">
     <div>
         <label for="email">Email</label>
-        <input type="text" name="email" id="email" ngModel required email>
+        <input type="text" name="email" id="email" ngModel required email #email="ngModel">
+        <small *ngIf="email.invalid  && email.touched">Valid email required.</small>
     </div>
     <div>
         <label for="password">Password</label>
-        <input type="password" name="password" id="password" ngModel required>
+        <input type="password" name="password" id="password" ngModel required #password="ngModel">
+        <small *ngIf="password.invalid && password.touched">Password required.</small>
     </div>
+
     <button [disabled]="loginForm.invalid">Login</button>
 </form>
 <div>Don't have an account? Register <a routerLink="/register">here</a></div>

@@ -1,7 +1,7 @@
-import { Team } from "./team";
-
-export interface IUser {
-    email: string;
-    id: string;
-    team: Team
+export interface User {
+    user: {
+        email: string;
+        id: string;
+    }
+    token: string
 }

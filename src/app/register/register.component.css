@@ -31,6 +31,11 @@ button:hover {
   color: lavender;
 }
 
+button:disabled {
+  background-color: #a9526c;
+  color: lavender;
+}
+
 h2 {
   color: #8A1538;
   margin-left: 15px;
@@ -44,4 +49,9 @@ input.ng-invalid.ng-touched {
 
 small {
   color: red;
+}
+
+div.errorBox {
+  background-color: #4d061b;
+  color: lavender;
 }

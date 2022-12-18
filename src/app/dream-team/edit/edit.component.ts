@@ -90,6 +90,6 @@ export class EditComponent implements OnInit {
       } else if (position === "FW") {
         this.selectedFW = this.allFW.filter((p) => idsArray.includes(p.id));
       }
-    }, 500);
+    }, 1000);
   }
 }

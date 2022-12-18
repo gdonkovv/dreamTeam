@@ -37,3 +37,22 @@ button:hover {
   /* Green */
   color: lavender;
 }
+
+button:disabled {
+  background-color: #a9526c;
+  color: lavender;
+}
+
+input.ng-invalid.ng-touched {
+  border: red 1px solid;
+}
+
+small {
+  color: red;
+  margin-left: 3px;
+}
+
+div.errorBox {
+  background-color: #4d061b;
+  color: lavender;
+}

@@ -41,7 +41,7 @@
 </div>
 <div class="wrapper">
     <h2>Create your dream team</h2>
-    <form #createForm="ngForm" (ngSubmit)="createTeamHandler(createForm.value, createForm)">
+    <form #createForm="ngForm" (ngSubmit)="createTeamHandler(createForm.value)">
         <div class="formField">
             <label for="name">Team Name</label> <br>
             <input type="text" name="name" id="name" ngModel required #name="ngModel">
@@ -50,13 +50,12 @@
 
         <div class="formField">
             <label for="emblem">Emblem 1</label>
-            <input type="radio" id="emblem1" name="emblem" value="emblem1" ngModel required #emblem="ngModel">
+            <input type="radio" id="emblem1" name="emblem" value="emblem1" ngModel required>
             <br>
             <label for="emblem">Emblem 2</label>
-            <input type="radio" id="emblem2" name="emblem" value="emblem2" ngModel required #emblem="ngModel">
+            <input type="radio" id="emblem2" name="emblem" value="emblem2" ngModel required>
             <img *ngIf="createForm.value.emblem === 'emblem1'" src="../../../assets/images/emblem1.png">
             <img *ngIf="createForm.value.emblem === 'emblem2'" src="../../../assets/images/emblem2.png">
-            <small *ngIf="emblem.invalid && emblem.touched">Emblem is required</small>
         </div>
 
         <div class="formField">
@@ -68,33 +67,37 @@
         <div class="formField">
             <label for="playersGK">Goalkeeper - Select 1</label> <br>
             <select (change)="updateSelectedPlayers(createForm.value.playersGK,'GK')" class="players" id="playersGK"
-                name="playersGK" size="6" multiple ngModel required arrLength requiredLength="1">
-                <option *ngFor="let plGK of allGK" value="{{plGK.id}}">{{plGK.name}}</option>
+                name="playersGK" size="6" multiple ngModel required arrLength requiredLength="1" #playersGK="ngModel">
+                <option *ngFor="let plGK of allGK" value="{{plGK.id}}">{{plGK.name}} - {{plGK.country}}</option>
             </select>
+            <small *ngIf="playersGK.touched && playersGK.errors?.['arrLength']">Please select 1 player by holding Ctrl key.</small>
         </div>
 
         <div class="formField">
             <label for="playersDF">Defence - Select 4</label> <br>
             <select (change)="updateSelectedPlayers(createForm.value.playersDF,'DF')" class="players" id="playersDF"
-                name="playersDF" size="6" multiple ngModel required arrLength requiredLength="4">
-                <option *ngFor="let plDF of allDF" value="{{plDF.id}}">{{plDF.name}}</option>
+                name="playersDF" size="6" multiple ngModel required arrLength requiredLength="4" #playersDF="ngModel">
+                <option *ngFor="let plDF of allDF" value="{{plDF.id}}">{{plDF.name}} - {{plDF.country}}</option>
             </select>
+            <small *ngIf="playersDF.touched && playersDF.errors?.['arrLength']">Please select 4 players by holding Ctrl key.</small>
         </div>
 
         <div class="formField">
             <label for="playersMF">Midfield - Select 4</label> <br>
             <select (change)="updateSelectedPlayers(createForm.value.playersMF,'MF')" class="players" id="playersMF"
-                name="playersMF" size="6" multiple ngModel required arrLength requiredLength="4">
-                <option *ngFor="let plMF of allMF" value="{{plMF.id}}">{{plMF.name}}</option>
+                name="playersMF" size="6" multiple ngModel required arrLength requiredLength="4" #playersMF="ngModel">
+                <option *ngFor="let plMF of allMF" value="{{plMF.id}}">{{plMF.name}} - {{plMF.country}}</option>
             </select>
+            <small *ngIf="playersMF.touched && playersMF.errors?.['arrLength']">Please select 4 players by holding Ctrl key.</small>
         </div>
 
         <div class="formField">
             <label for="playersFW">Forward - Select 2</label> <br>
             <select (change)="updateSelectedPlayers(createForm.value.playersFW,'FW')" class="players" id="playersFW"
-                name="playersFW" size="6" multiple ngModel required arrLength requiredLength="2">
-                <option *ngFor="let plFW of allFW" value="{{plFW.id}}">{{plFW.name}}</option>
+                name="playersFW" size="6" multiple ngModel required arrLength requiredLength="2" #playersFW="ngModel">
+                <option *ngFor="let plFW of allFW" value="{{plFW.id}}">{{plFW.name}} - {{plFW.country}}</option>
             </select>
+            <small *ngIf="playersFW.touched && playersFW.errors?.['arrLength']">Please select 2 players by holding Ctrl key.</small>
         </div>
 
         <br>

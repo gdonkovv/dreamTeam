@@ -25,3 +25,22 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+## App details
+
+-- How it works
+The Dream Team app is inspired by Qatar World Cup 2022. Users can register and create their own dream team choosing from all the football players that were part from the championship. Each user can rate other users' teams and the 3 highest-rated teams will are shown on the home page. In the players page users can see which players are most popular choices for dream teams.
+
+-- Backend
+Firebase Realtime database and Firebase Authentication were used.
+
+-- Forms
+Login, Register, Create, Edit - Template Driven Forms
+In all forms data validation is added using directives;
+
+-- Models
+Created models for User, Player and Team;
+
+-- Guards
+Logged users can access pages related to My Team and can create, edit, delete their team and rate other teams, they cannot access Login or Register
+Guest users can access pages with details but cannot create, edit or rate teams, they can access Login and Register

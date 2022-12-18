@@ -2,6 +2,7 @@ import { Injectable, NgZone } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth'
 import { Router } from '@angular/router';
 import { TeamsService } from './dream-team/teams.service';
+import { User } from './models/user';
 
 @Injectable({
   providedIn: 'root'
@@ -27,7 +28,7 @@ export class AuthService {
         user?.getIdToken()
           .then(idToken => {
 
-            let userObj = {
+            let userObj: User = {
               user: {
                 email: user.email,
                 id: user.uid
@@ -55,7 +56,6 @@ export class AuthService {
         this.router.navigate(['']);
       })
       .catch(error => {
-        console.log(error);
         OnError();
       });
 
@@ -65,10 +65,10 @@ export class AuthService {
     this.angularFireAuth.createUserWithEmailAndPassword(email, password)
       .then(() => {
         OnSuccess();
+        this.router.navigate(['']);
       })
       .catch(error => {
-        console.log(error);
-        OnError();
+        OnError(error.message);
       })
   }
 

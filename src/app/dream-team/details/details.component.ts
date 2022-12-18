@@ -22,22 +22,23 @@ export class DetailsComponent implements OnInit {
   constructor(private playersService: PlayersService, private router: Router, private teamsService: TeamsService) { }
 
   ngOnInit(): void {
+    setTimeout(() => {
+      this.playersService.fetchPlayersByIds(this.teamView.playersGK).subscribe((res) => {
+        this.selectedGK = res;
+      });
 
-    this.playersService.fetchPlayersByIds(this.teamView.playersGK).subscribe((res) => {
-      this.selectedGK = res;
-    });
+      this.playersService.fetchPlayersByIds(this.teamView.playersDF).subscribe((res) => {
+        this.selectedDF = res;
+      });
 
-    this.playersService.fetchPlayersByIds(this.teamView.playersDF).subscribe((res) => {
-      this.selectedDF = res;
-    });
+      this.playersService.fetchPlayersByIds(this.teamView.playersMF).subscribe((res) => {
+        this.selectedMF = res;
+      });
 
-    this.playersService.fetchPlayersByIds(this.teamView.playersMF).subscribe((res) => {
-      this.selectedMF = res;
-    });
-
-    this.playersService.fetchPlayersByIds(this.teamView.playersFW).subscribe((res) => {
-      this.selectedFW = res;
-    });
+      this.playersService.fetchPlayersByIds(this.teamView.playersFW).subscribe((res) => {
+        this.selectedFW = res;
+      });
+    }, 1000);
   }
 
   deleteTeamHandler(teamId: string) {

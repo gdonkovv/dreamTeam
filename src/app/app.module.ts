@@ -16,6 +16,10 @@ import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
 import { provideAuth, getAuth } from '@angular/fire/auth';
 import { SharedModule } from './shared/shared.module';
+import { IsLoggedService } from './guards/is-logged.service';
+import { IsGuestService } from './guards/is-guest.service';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AppInterceptor } from './app.interceptor';
 
 @NgModule({
   declarations: [
@@ -37,7 +41,7 @@ import { SharedModule } from './shared/shared.module';
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth())
   ],
-  providers: [],
+  providers: [IsLoggedService, IsGuestService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
